@@ -1,3 +1,5 @@
+from tkinter import *
+from tkinter import messagebox as MessageBox
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
@@ -51,6 +53,7 @@ class RegistroUsuario(CreateView):
     success_url = reverse_lazy('login')
 
 
+
 def login(request):
     form = AuthenticationForm()
     if request.method == "POST":
@@ -64,6 +67,7 @@ def login(request):
             if user is not None:
                 do_login(request, user)
                 return redirect('/')
+        print("ERROR")
 
     return render(request, "log/index.html", {'form': form})
 

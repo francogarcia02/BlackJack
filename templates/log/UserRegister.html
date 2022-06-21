@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% extends 'home.html' %}
+{% load static %}
 {% block I %}
 
 <form class="text-white" method="post">
@@ -38,23 +39,23 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="form-group">
                 <label>Contraseña</label>
-                <input class="form-control" type="password" name="password1">
+                <input class="form-control" type="password" id="password1" name="password1">
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
             <div class="form-group">
                 <label>Confirmar contraseña</label>
-                <input class="form-control" type="password" name="password2">
+                <input class="form-control" type="password" id="password2" name="password2">
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
             <div class="form-group">
-                <button class="btn btn-success" type="submit"> Guardar </button>
+                <button class="btn btn-success" onclick="AlertError()" type="submit"> Crear cuenta </button>
                 <button class="btn btn-danger"><a href="/accounts/login/" class="text-white">Cancelar</a></button>
             </div>
         </div>
     </div>
 
 </form>
-
+<script src="{% static 'js/index.js' %}" type="text/javascript"></script>
 {% endblock %}

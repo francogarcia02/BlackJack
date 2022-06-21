@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 {% extends 'home.html' %}
-{% block I %}
+{% load static %}
 
+{% block I %}
 <div style="margin-top:90px ; margin-left:400px ; margin-right:400px ; background-color:lavender ; border-radius:5px">
     <form class="text-black"  method="post">
         {% csrf_token %}
@@ -34,4 +35,5 @@
         </div>
     </form>
 </div>
+
 {% endblock %}
