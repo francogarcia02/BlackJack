@@ -1,3 +1,4 @@
+var aviso = "-La contraseña no debe tener menos de 8 caracteres -No debe contener unicamente numeros"
 
 
 function AlertError() {

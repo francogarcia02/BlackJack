@@ -2,60 +2,67 @@
 {% extends 'home.html' %}
 {% load static %}
 {% block I %}
+<div style="margin-top:10px ; margin-left:400px ; margin-right:400px ; background-color:lavender ; border-radius:5px">
+    <h4 class="text-sm-center">AVISO:</h4>
+    <p style="margin-left:5px;margin-bottom:-5px">-La contraseña no debe tener menos de 8 caracteres</p>
+    <p style="margin-left:5px">-No debe contener unicamente numeros</p>
+</div>
+<div style="margin-top:10px ; margin-left:400px ; margin-right:400px ; background-color:lavender ; border-radius:5px">
+    <h3 class="text-sm-center" >Registrar cuenta</h3>
+    <form class="text-black" style="margin-left:120px" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2" style="margin-bottom:-15px">
+                <div class="form-group">
+                    <label class="text-sm-center">Nombre de usuario</label>
+                    <input class="form-control" type="text" name="username">
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2" style="margin-bottom:-15px">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input class="form-control" type="text" name="first_name">
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2" style="margin-bottom:-15px">
+                <div class="form-group">
+                    <label>Apellido</label>
+                    <input class="form-control" type="text" name="last_name">
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2" style="margin-bottom:-15px">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="form-control" type="text" name="email">
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2" style="margin-bottom:-15px">
+                <div class="form-group">
+                    <label>Direccion</label>
+                    <input class="form-control" type="text" name="direccion">
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2" style="margin-bottom:-15px">
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input class="form-control" type="password" id="password1" name="password1">
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="form-group">
+                    <label>Confirmar contraseña</label>
+                    <input class="form-control" type="password" id="password2" name="password2">
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="form-group">
+                    <button class="btn btn-success" onclick="AlertError()" type="submit"> Crear cuenta </button>
+                    <button class="btn btn-danger"><a href="/accounts/login/" class="text-white">Cancelar</a></button>
+                </div>
+            </div>
+        </div>
 
-<form class="text-white" method="post">
-    {% csrf_token %}
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <label>Nombre de usuario</label>
-                <input class="form-control" type="text" name="username">
-            </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <label>Nombre</label>
-                <input class="form-control" type="text" name="first_name">
-            </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <label>Apellido</label>
-                <input class="form-control" type="text" name="last_name">
-            </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <label>Email</label>
-                <input class="form-control" type="text" name="email">
-            </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <label>Direccion</label>
-                <input class="form-control" type="text" name="direccion">
-            </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <label>Contraseña</label>
-                <input class="form-control" type="password" id="password1" name="password1">
-            </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <label>Confirmar contraseña</label>
-                <input class="form-control" type="password" id="password2" name="password2">
-            </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-            <div class="form-group">
-                <button class="btn btn-success" onclick="AlertError()" type="submit"> Crear cuenta </button>
-                <button class="btn btn-danger"><a href="/accounts/login/" class="text-white">Cancelar</a></button>
-            </div>
-        </div>
-    </div>
-
-</form>
+    </form>
+</div>
 <script src="{% static 'js/index.js' %}" type="text/javascript"></script>
 {% endblock %}
