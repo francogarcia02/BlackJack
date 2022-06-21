@@ -1,0 +1,62 @@
+{% extends 'home.html' %}
+
+{% block I %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Inicio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/Propios">perfil</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+{% endblock %}
+
+{% block list%}
+<table class="table text-white" >
+    <thead>
+        <tr>
+            <td>Fecha de compra</td>
+            <td>Adquisicion</td>
+            <td>Comprador</td>
+            <td>Valor</td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{objeto.created_on}}</td>
+        <td>{{objeto.jugador}}</td>
+        <td>{{objeto.customuser}}</td>
+        <td>{{objeto.precio}}</td>
+    </tr>
+        {% if object_list %}
+        {% for Transaccion in object_list %}
+        <tr>
+            <td>{{ Transaccion.created_on }}</td>
+            <td>{{ Transaccion.jugador }}</td>
+            <td>{{ Transaccion.customuser }}</td>
+            <td> {{ Transaccion.precio }} </td>
+        </tr>
+        {% endfor %}
+
+        {% else %}
+        {% endif %}
+    </tbody>
+    <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+    </tr>
+
+</table>
+{% endblock %}
