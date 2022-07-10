@@ -1,143 +1,28 @@
-from tkinter import *
-from tkinter import messagebox as MessageBox
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
-from django.contrib.auth import logout as do_logout
-from django.contrib.auth import authenticate
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login as do_login
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
-from django.http import HttpResponse
-from core.models import *
-from .forms import *
+from .forms import UserRegisterForm
+from .models import *
+from django.contrib import messages
 
+def home(request):
+    return render(request, 'core/home.html')
 
-class HomeView(TemplateView):
-    template_name = 'home.html'
-
-def aboutus(request):
-    return render(request, 'Inicio/aboutus.html')
-
-class JugadorList(ListView):
-    model = Jugador
-    template_name = 'Jugador/Jugador_list.html'
-
-class JugadorCreate(CreateView):
-    model = Jugador
-    form_class = JugadorForm
-    template_name = 'Jugador/Jugador_form.html'
-    success_url = reverse_lazy('Lista')
-
-class JugadorUpdate(UpdateView):
-    model = Jugador
-    form_class = JugadorForm
-    template_name = 'Jugador/Jugador_form.html'
-    success_url = reverse_lazy('Lista')
-
-
-class JugadorDelete(DeleteView):
-    model = Jugador
-    template_name = 'Jugador/Jugador_delete.html'
-    success_url = reverse_lazy('Lista')
-
-class Mercado(ListView):
-    model = Jugador
-    template_name = 'Inicio/Mercado.html'
-
-class RegistroUsuario(CreateView):
-    model = User
-    template_name = 'log/UserRegister.html'
-    form_class = UsuarioForm
-    success_url = reverse_lazy('login')
-
-
-
-def login(request):
-    form = AuthenticationForm()
+def play(request):
+    if request.user.is_authenticated:
+        return render(request, 'core/play.html')
+    else:
+        return render(request, 'warnings/avisolog.html')
+def register(request):
     if request.method == "POST":
-        form = AuthenticationForm(data=request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
+            form.save()
             username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+            messages.success(request, f'Usuario {username} creado')
+            return redirect('/')
+    else:
+        form = UserRegisterForm()
 
-            user = authenticate(username=username, password=password)
-
-            if user is not None:
-                do_login(request, user)
-                return redirect('/')
-        print("ERROR")
-
-    return render(request, "log/index.html", {'form': form})
-
-def logout(request):
-    do_logout(request)
-    return redirect('/')
-
-class Propios(ListView):
-    model = Transaccion
-    template_name = 'Jugador/Propios.html'
-
-
-class NoticiaList(ListView):
-    model = Noticia
-    template_name = 'Noticias/NotList.html'
-
-class NoticiaCreate(CreateView):
-    model = Noticia
-    form_class = NoticiaForm
-    template_name = 'Noticias/NotForm.html'
-    success_url = reverse_lazy('notlista')
-
-class NoticiaDelete(DeleteView):
-    model = Noticia
-    template_name = 'Noticias/NotDelete.html'
-    success_url = reverse_lazy('notlista')
-
-class NoticiaUpdate(UpdateView):
-    model = Noticia
-    form_class = NoticiaForm
-    template_name = 'Noticias/NotForm.html'
-    success_url = reverse_lazy('notlista')
-
-
-
-class TransaCreate(CreateView):
-    model = Transaccion
-    form_class = TransaForm
-    template_name = 'transf.html'
-
-
-
-    def get(self, request, **kwargs):
-        jugador_id = kwargs.get('jugador_id')
-        if jugador_id:
-            jugador = {'jugador': Jugador}
-            return render(request, 'template', {"jugador": jugador})
-        else:
-            return render(request, 'transf.html')
-    success_url = reverse_lazy('Mercado')
-
-
-def TransList(request):
-
-    objeto = Transaccion.objects.latest("created_on")
-    return render(request, 'Transacciones/TransList.html', {'objeto': objeto})
-
-
-#class ListaTr(ListView):
-#    model = Transaccion
-#    template_name = 'Transacciones/TransList.html'
-
-
-class VenderJug(DeleteView):
-    model = Transaccion
-    template_name = 'Transacciones/Vender.html'
-    success_url = reverse_lazy('MIS')
-
-
-
-
+    context = {'form' : form}
+    return render(request,'social/register.html', context)
 
 

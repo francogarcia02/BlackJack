@@ -1,5 +1,3 @@
-from config.wsgi import *
-from core.models import Transaccion
-
+from django.test import TestCase
 
 # Create your tests here.

@@ -1,0 +1,31 @@
+{% extends 'core/home.html' %}
+<html lang="en">
+<head>
+</head>
+<body>
+
+{% block I %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+            <div class="container">
+                <a class="navbar-brand ">BlackJack</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            </div>
+        </nav>
+{% endblock %}
+
+{% block av %}
+<div class="container bg-dark text-white form-control-sm" style="margin-top:100px">
+  <div style="margin-top:10px; margin-left: 42%">
+    <h1>ERROR</h1>
+  </div>
+  <div style="margin-top:10px; margin-left: 33.5%">
+    <a>Debe estar logueado para usar esta funcion</a>
+  </div>
+  <div style="margin-top:10px">
+    <button class="btn" style="background-color:white; margin-bottom:10px; margin-left: 39.05%;"><a class="nav-link active text-black"  href="/">Inicio</a></button>
+    <button class="btn" style="background-color:white; margin-bottom:10px;"><a class="nav-link active text-black"  href="/login">Login</a></button>
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>

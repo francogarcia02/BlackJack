@@ -1,0 +1,38 @@
+{% extends 'core/home.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+{% block msg %}
+{% endblock %}
+{% block I %}
+<button class="btn" style="background:white; margin-left:5%; margin-top:1%;"><a class="nav-link active text-black" href="/">Cancelar</a></button>
+<form style="margin-left:25%; margin-right:25%; margin-top:-54px;" class="form-control-sm bg-dark text-white"  method="post">
+    <div class="offset-3">
+        {% csrf_token %}
+        <div class="container">
+            {{ form.as_p }}
+        </div>
+        <div>
+            <button class="btn" style="background:white; margin-left: 22%;" type="submit" id="submit">Iniciar secion</button>
+        </div>
+    </div>
+
+</form>
+
+<div class="bg-dark offset-3 form-control-sm" style="margin-right: 25%;  margin-bottom:10px; margin-top:10px;">
+    <div>
+        <div class="text-white" style="margin-left: 39.5%">
+            <a>¿No tiene una cuenta?</a>
+        </div>
+        <div style="margin-top:10px">
+            <button class="btn" style="background-color:white; margin-bottom:10px; margin-left: 39.05%;"><a class="nav-link active text-black"  href="/register">Registrarse</a></button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

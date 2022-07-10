@@ -1,0 +1,19 @@
+{% extends 'core/home.html' %}
+<html lang="en">
+<body>
+{% block I %}
+<a>Crear cuenta</a>
+<form class="bg-dark text-white container" method="post">
+    <div class="offset-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <button class="btn" style="background:white;" type="submit" id="submit">Registrarse</button>
+            <button class="btn" style="background:white;"><a class="nav-link active text-black" href="/login">Cancelar</a></button>
+        </div>
+    </div>
+
+</form>
+{% endblock %}
+</body>
+</html>
