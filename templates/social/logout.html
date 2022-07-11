@@ -6,12 +6,14 @@
 </head>
 <body>
 {% block I %}
-<div class="bg-dark">
-    <div>
-        <button><a href="/">Inicio</a></button>
-    </div>
-    <div>
-        <a>Cerraste sesion</a>
+<div class="bg-dark text-white container form-control-sm" style="margin-top:100px">
+    <div class="offset-5">
+        <div style="margin-bottom:10px">
+            <a>Cerraste sesion</a>
+        </div>
+        <div>
+            <button class="btn" style="background:white; margin-bottom:10px"><a class="nav-link active text-black" href="/">Inicio</a></button>
+        </div>
     </div>
 </div>
 {% endblock %}

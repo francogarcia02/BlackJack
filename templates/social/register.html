@@ -2,8 +2,13 @@
 <html lang="en">
 <body>
 {% block I %}
-<a>Crear cuenta</a>
-<form class="bg-dark text-white container" method="post">
+<div class="bg-dark text-white container form-control-sm">
+    <div class="offset-4 h3">
+        <a>Crear cuenta</a>
+    </div>
+</div>
+
+<form class="bg-dark text-white container form-control-sm" method="post">
     <div class="offset-4">
         {% csrf_token %}
         {{ form.as_p }}
