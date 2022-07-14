@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import UserRegisterForm
 from .models import *
 from django.contrib import messages
+from django.core.mail import send_mail
 
 def home(request):
     return render(request, 'core/home.html')
@@ -19,6 +20,8 @@ def register(request):
             username = form.cleaned_data['username']
             messages.success(request, f'Usuario {username} creado')
             return redirect('/login')
+            send_mail('Subject here', 'Here is the message.', 'francoalbertogarcia2017@gmail.com',
+                      [{email}], fail_silently=False)
     else:
         form = UserRegisterForm()
 
