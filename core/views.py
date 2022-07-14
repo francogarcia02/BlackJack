@@ -25,4 +25,5 @@ def register(request):
     context = {'form' : form}
     return render(request,'social/register.html', context)
 
-
+def perfil(request):
+    return render(request, 'social/perfil.html')

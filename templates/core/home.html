@@ -39,6 +39,7 @@
                             {% endif %}
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 {% if request.user.is_authenticated %}
+                                <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
                                 <li><a class="dropdown-item" href="/logout">Loguot</a></li>
                                 {% else %}
                                 <li><a class="dropdown-item" href="/login">Login</a></li>
