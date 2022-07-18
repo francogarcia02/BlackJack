@@ -1,4 +1,5 @@
 {% extends 'core/home.html' %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,11 +7,14 @@
 </head>
 <body>
 {% block I %}
-        <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <nav class="navbar navbar-expand-lg navbar-dark ">
             <div class="container">
-                <a class="navbar-brand " href="/">BlackJack</a>
+                <div style="margin-left:-80px">
+                    <img class="D" src='{% static "logo1.png" %}' width="30" height="30" >
+                    <a class="navbar-brand " href="/">BlackJack</a>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right:-80px">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             {% if request.user.is_authenticated %}
@@ -20,6 +24,7 @@
                             {% endif %}
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 {% if request.user.is_authenticated %}
+                                <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
                                 <li><a class="dropdown-item" href="/logout">Loguot</a></li>
                                 {% else %}
                                 <li><a class="dropdown-item" href="/login">Login</a></li>

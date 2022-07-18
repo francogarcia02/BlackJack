@@ -1,16 +1,19 @@
 {% extends 'core/home.html' %}
+{% load static %}
 <html lang="en">
 <body>
 {% block I %}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-    <div class="container">
-        <a class="navbar-brand" href="/">BlackJack</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-    </div>
-</nav>
+        <nav class="navbar navbar-expand-lg navbar-dark ">
+            <div class="container">
+                <div style="margin-left:-80px">
+                    <img class="D" src='{% static "logo1.png" %}' width="30" height="30" >
+                    <a class="navbar-brand " href="/">BlackJack</a>
+                </div>
+            </div>
+        </nav>
 
-<div class="bg-dark text-white container form-control-sm" style="margin-top:20px; margin-bottom:10px">
+<div class="bg-dark text-white-50 container form-control-sm" style="margin-top:20px; margin-bottom:10px">
     <div class="offset-5 h3">
         <a>Crear cuenta</a>
     </div>
