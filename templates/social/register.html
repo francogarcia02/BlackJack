@@ -13,18 +13,18 @@
             </div>
         </nav>
 
-<div class="bg-dark text-white-50 container form-control-sm" style="margin-top:20px; margin-bottom:10px">
-    <div class="offset-5 h3">
+<div class="bg-dark text-white form-control__title">
+    <div class="titulo h3">
         <a>Crear cuenta</a>
     </div>
 </div>
 
-<form class="bg-dark text-white container form-control-sm" method="post">
-    <div class="offset-4" style="margin-top:5px; margin-bottom:5px;">
+<form class="bg-dark text-white form-registro" method="post">
+    <div >
         {% csrf_token %}
         {{ form.as_p }}
         <div>
-            <button class="btn offset-2" style="background:white;" type="submit" id="submit">Registrarse</button>
+            <button class="form-control__button" style="background:white;" type="submit" id="submit">Registrarse</button>
         </div>
     </div>
 

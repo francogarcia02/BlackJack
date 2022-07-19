@@ -17,32 +17,36 @@
             </div>
         </nav>
 
-<div class="bg-dark text-white-50 form-control-sm" style="margin-left:25%; margin-right:25%; margin-top:20px;">
-    <div class="offset-5 h3">
+<div class="bg-dark text-white form-control__title">
+    <div class="titulo h3">
         <a>Iniciar sesion</a>
     </div>
 </div>
 
-<form style="margin-left:25%; margin-right:25%; margin-top:20px;" class="form-control-sm bg-dark text-white"  method="post">
-    <div class="offset-3 ">
+<form class="form bg-dark text-white"  method="post">
         {% csrf_token %}
         <div class="container">
-            {{ form.as_p }}
+            <div>
+                <label>Usuario:</label>
+                <input class="form-control__input" type="text" name="username">
+            </div>
+            <div>
+                <label>Contraseña:</label>
+                <input class="form-control__input"  type="password" name="password">
+            </div>
+            <div>
+                <button class="form-control__button" type="submit" id="submit">Iniciar sesion</button>
+            </div>
         </div>
-        <div>
-            <button class="btn" style="background:white; margin-left: 22%;" type="submit" id="submit">Iniciar secion</button>
-        </div>
-    </div>
-
 </form>
 
-<div class="bg-dark offset-3 form-control-sm" style="margin-right: 25%;  margin-bottom:10px; margin-top:10px;">
+<div class="bg-dark offset-3 form" style="margin-right: 25%;  margin-bottom:10px; margin-top:10px;">
     <div style="margin-left:10px">
-        <div class="text-white" style="margin-left: 39.5%">
+        <div class="text-white titulo">
             <a>¿No tiene una cuenta?</a>
         </div>
-        <div style="margin-top:10px">
-            <button class="btn" style="background-color:white; margin-bottom:10px; margin-left: 39.05%;"><a class="nav-link active text-black"  href="/register">Registrarse</a></button>
+        <div class="text-white titulo">
+            <a>registrese <a class="texto-white" href="/register">aqui</a></a>
         </div>
     </div>
 </div>

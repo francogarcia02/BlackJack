@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 def home(request):
     return render(request, 'core/home.html')
 
-def play(request):
+def compras(request):
     if request.user.is_authenticated:
         return render(request, 'core/play.html')
     else:
